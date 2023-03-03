@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS NOW</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header_logs">News NOW</div>
+        <div class="header_search">Search</div>
+    </header>
+
+    <div class="wrapper">
+        <div class="news-single">
+            <a href="/">&larr;- Back</a>
+            <% if(articles!=null) { %>
+                    <h2><%- articles.title %></h2>
+                    <p><%- articles.description %></p>
+            <% } else { %>
+                No posts found.
+           <% } %>
+        </div>
+    </div>
+</body>
+
+</html>
