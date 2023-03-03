@@ -2,6 +2,8 @@ const express = require('express');
 const routes = require('./routes/newsRoutes');
 const port=3010;
 const app = express();
+require('dotenv').config();
+console.log(process.env);
 
 
 app.set('view engine','ejs');

@@ -1,11 +1,11 @@
 // news_index
 const axios=require('axios');
-
+let apikey = process.env.apikey;
 const news_index =async (req,res)=> {
     //res.render('index');
 
     try {
-        const newsAPI = await axios.get('https://newsapi.org/v2/everything?q=India OR US&from=2023-03-02&to=2023-03-02&sortBy=popularity&apiKey=7956d36b86814ec5995ac09200368d45');
+        const newsAPI = await axios.get(`https://newsapi.org/v2/everything?q=India OR US&from=2023-03-02&to=2023-03-02&sortBy=popularity&${apikey}`);
         //console.log(newsAPI.data);
         res.render('index',{articles:newsAPI.data.articles});
 
@@ -33,7 +33,7 @@ const news_article =async (req,res)=> {
     let articleID =req.params.id;
     console.log(articleID);
     try {
-        const newsAPI = await axios.get(`https://newsapi.org/v2/everything?sources=${articleID}&apiKey=7956d36b86814ec5995ac09200368d45`);
+        const newsAPI = await axios.get(`https://newsapi.org/v2/everything?sources=${articleID}&${apikey}`);
         //console.log(newsAPI.data);
         res.render('particular',{articles:newsAPI.data.articles});
 
